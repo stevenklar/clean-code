@@ -22,7 +22,11 @@ Use or implementation of the following patterns as practice.
 [ ] LSP - Liskov Substitution Principle
 
 [ ] OCP - Open Closed Principle
+
 [ ] TdA - Tell don't Ask
+
 [ ] LoD - Law of Demeter
+
 [ ] IoC - Inversion of Control
+
 [ ] YAGNI - You ain't gonna need it
