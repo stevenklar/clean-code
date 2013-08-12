@@ -3,7 +3,8 @@ Clean Code - Practice
 
 Use or implementation of the following patterns as practice.
 
-[ ] DRY - Don't repeat yourself[ ] KISS - Keep it simple, stupid
+[ ] DRY - Don't repeat yourself
+[ ] KISS - Keep it simple, stupid
 [ ] FCoI - Favour Composition of Inheritance
 [ ] SLA - Single level of abstraction
 [ ] SRP - Single responsibility principle
