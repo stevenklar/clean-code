@@ -23,36 +23,60 @@ class Car
 }
 
 // better
-class Car
-{
+class Engine {
     const ENGINE_ON = 'STARTED';
     const ENGINE_OFF = 'STOPPED';
 
-    public function startEngine()
+    protected $state;
+
+    public function start()
     {
-        if ($this->isEngineStarted()) {
+        if ($this->isStarted()) {
             throw Exception('Engine is already running.');
         }
 
-        $this->setEngine(self::ENGINE_ON);
+        $this->setState(self::ENGINE_ON);
+    }
+
+    public function stop()
+    {
+        if (!$this->isStarted()) {
+            throw Exception('Engine is already off.');
+        }
+
+        $this->setState(self::ENGINE_OFF);
+    }
+
+    public function isStarted()
+    {
+        return $this->state === self::ENGINE_ON;
+    }
+
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+}
+
+class NewCar {
+
+    /**
+     * @var Engine
+     */
+    protected $engine;
+
+    public function __construct(Engine $engine)
+    {
+        $this->engine = $engine;
+    }
+
+    public function startEngine()
+    {
+        $this->engine->start();
     }
 
     public function stopEngine()
     {
-        if (!$this->isEngineStarted()) {
-            throw Exception('Engine is already off.');
-        }
-
-        $this->setEngine(self::ENGINE_OFF);
-    }
-
-    public function isEngineStarted()
-    {
-        return $this->engine === self::ENGINE_ON;
-    }
-
-    public function setEngine($engineState)
-    {
-        $this->engine = $engineState;
+        $this->engine->stop();
     }
 }
